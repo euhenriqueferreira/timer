@@ -11,26 +11,27 @@ function twoDigits(num){
 }
 
 // Starts the cronometer
-function startCronometer(){
-    interval = setInterval(cronometer, 1);
+function startTimer(){
+    timer();
+    interval = setInterval(timer, 1000);
 }
 
 // Pauses the cronometer
-function pauseCronometer(){
+function pauseTimer(){
     clearInterval(interval);
 }
 
 // Stops the cronometer
-function stopCronometer(){
+function stopTimer(){
     clearInterval(interval);
     seconds = 0
     minutes = 0
     hours = 0
-    document.getElementById('cronometer').innerText = "00:00:00";
+    document.getElementById('timer').innerText = "00:00:00";
 }
 
 // Cronometer function
-function cronometer(){
+function timer(){
     seconds++;
 
     if(seconds == 60){
@@ -42,5 +43,5 @@ function cronometer(){
             minutes = 0
         }
     }
-    document.getElementById('cronometer').innerText = twoDigits(hours) + ":" + twoDigits(minutes) + ':' + twoDigits(seconds);
+    document.getElementById('timer').innerText = twoDigits(hours) + ":" + twoDigits(minutes) + ':' + twoDigits(seconds);
 }
